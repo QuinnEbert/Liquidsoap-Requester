@@ -1,0 +1,5 @@
+soap_req.php:
+ + Ports over the custom "php_info" view from my defunct "liqsched" project.
+ + Supports $myUsers from the config, allowing IP-based limiting of access.
+soap_req.cfg:
+ + Adds $myUsers into the default config.  Use it to allow only certain IPs access to the app.

@@ -1,0 +1,11 @@
+#!/bin/bash
+# 
+# This script can be added to a crontab to regularly scan a folder for MP3/OGG files
+# PLEASE READ THE BELOW **TODO** BEFORE USING THIS IN YOUR SETUP:
+# 
+# TODO:
+# + Unhardcode the path to your Music directory
+# + Unhardcode the path to your LS script's M3U
+# + Modify the "find" command's "-iname" options to allow in other filetypes you may need
+# 
+find "/home/quinn/Music/" -iname "*.mp3" -or -iname "*.ogg" > /home/quinn/Liquidsoap/quinnliq.m3u

@@ -1,0 +1,3 @@
+Liquidsoap Requester -- PHP web app to control your Liquidsoap Audio Stream Generator
+
+More documentation coming soon...

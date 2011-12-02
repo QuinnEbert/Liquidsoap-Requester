@@ -1,0 +1,52 @@
+<?php
+  // READ BELOW FOR HOW TO CONFIGURE LIQUIDSOAP REQUESTER:
+  // DO NOT TOUCH THE FOLLOWING LINE *PERIOD*
+  $isSetup = false;
+  // DID YOU LEAVE THAT LINE ALONE?  OK, IF YOU DID, THAT'S *VERY* GOOD...  ;)
+  // ...NOW, KEEP ON READING...
+  /*
+    This is the (tentative) configuration file for the public release of Quinn
+    Ebert's Liquidsoap Requester PHP Web-based Application.  Despite
+    the file extension, it is a PHP code-style file.  If you know what
+    this means, it means you can treat it as a PHP file (you can do *really*
+    fancy stuff with it, if you know what you're doing)!
+    --------------------------------------------------
+    If you're unfamiliar with PHP, or very short on time, just follow these
+    comments to setup your LSR installation...
+  */
+  
+  // Decide if you have a directory where your MP3s are kept, or if you
+  // want to use an m3u file to list your available media files from:
+  // POSSIBLE SETTINGS:
+  //  + "flatpath": A directory containing MP3 files will be sourced
+  //                (RECURSION NOT YET SUPPORTED)
+  //  + "playlist": A playlist containing media will be sourced
+  //                (*CAN* GET FILES FROM MULTIPLE DIRECTORIES ALREADY!)
+  $mSource = 'playlist';
+  
+  // Provide the path to search ('flatpath') or the M3U to read ('playlist'):
+  $mReadIn = '/home/quinn/Liquidsoap/quinnliq.m3u';
+  
+  // You can set this to your Streaming Output's Source ID (the optional "id' parameter in
+  // Liquidsoap) if you wish to support on-demand track-skipping:
+  $skipVia = 'ToVorbis';
+  
+  // This setting allows you to set LSR into a mode where it only provides track-skipping features
+  // AVAILABLE VALUES:
+  //  false : Liquidsoap Requester runs in the "full" mode
+  //   true : Liquidsoap Requester runs in the "skip" mode
+  // THIS IS A BOOLEAN VALUE: DO NOT USE QUOTES IN YOUR SETTING!
+  $microMe = false;
+  
+  // Set the telnet port your script uses:
+  $ctlPort = 1234;
+  
+  // Once you're done setting up the config, remove the "//" from the next line:
+  //$isSetup = true;
+  
+  // DO **NOT** TOUCH ANYTHING BELOW HERE IN THIS FILE, UNLESS YOU KNOW *EXACTLY*
+  // WHAT YOU'RE DOING!!!
+  if (!$isSetup)
+    die("<strong>Fatal Error:</strong><br /><br />It seems you have not yet fully set up your Liquidsoap Requester configuration, please check your installation's &quot;soap_req.cfg&quot; file to see what you've done wrong!");
+  // AGAIN, DO NOT TOUCH ANYTHING, EVEN THIS LAST LINE:
+  $bryanMode = false;

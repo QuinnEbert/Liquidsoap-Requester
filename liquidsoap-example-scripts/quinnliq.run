@@ -1,0 +1,11 @@
+#!/bin/bash
+# 
+# This script can be added to /etc/rc.local to start a Liquidsoap script on-boot as root
+# PLEASE READ THE BELOW **TODO** BEFORE USING THIS IN YOUR SETUP:
+# 
+# TODO:
+# + Unhardcode the path to your Liquidsoap scripts
+# + Unhardcode the path to the local SCREEN binary
+# + Add in support for running as a non-root user (suggested using "su")
+# 
+/usr/bin/screen -dmS 'Liquidsoap' /home/quinn/Liquidsoap/quinnliq.liq
