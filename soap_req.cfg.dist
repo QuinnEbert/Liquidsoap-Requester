@@ -38,6 +38,15 @@
   // THIS IS A BOOLEAN VALUE: DO NOT USE QUOTES IN YOUR SETTING!
   $microMe = false;
   
+  // This setting allows you to disable GetID3 metadata library support.  If you
+  // have thousands of files and don't care about metadata, disable this, it can
+  // dramatically slow down large library rendering (especially if your setup is
+  // unable to use the metadata caching feature...)
+  // AVAILABLE VALUES:
+  //  false : support displaying and searching of files' metadata
+  //   true : disable displaying and searching of files' metadata
+  $useMeta = true;
+  
   // Set the telnet port your script uses:
   $ctlPort = 1234;
   
