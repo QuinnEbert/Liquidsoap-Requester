@@ -1,0 +1,3 @@
++ Test with Liquidsoap v1.0.x -- I think some things are probably broken by the
+  new version.
++ I have some other fun things in store for the future. ;)

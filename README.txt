@@ -2,9 +2,8 @@ Liquidsoap Requester -- PHP web app to control your Liquidsoap Audio Stream Gene
 
 Requirements:
 
- * PHP of version 5 or later
- * Liquidsoap Audio Stream Generator (pre-version 1.0 is "certified" to work and 1.0 will be tested soon)
- * (Preferred) Apache web server of version 2.x.x
+ * PHP of version 5 or later (PHP v4 will not be supported, get with the times!)
+ * Liquidsoap Audio Stream Generator (for now version 0.9 is "certified" to run)
+ * (Preferred) Apache web server of version 2.x.x, 1.x.x untested (but may run).
 
-
-More documentation coming soon...
+See "TODO.txt" for list of planned upcoming changes.
