@@ -18,7 +18,7 @@ $cfgFile = dirname(__FILE__).'/soap_req.cfg';
 if ( !file_exists($cfgFile) || !is_readable($cfgFile) )
   die('<strong>Fatal Error:</strong><br><br>Couldn\'t find (or read) the config file "'.$cfgFile.'"!  Check it is there, and that the permissions to read it are sufficient, and try loading this page again!');
 require_once($cfgFile);
-if (!strstr($myUsers,$_SERVER['REMOTE_ADDR']))
+if (isset($myUsers) && !strstr($myUsers,$_SERVER['REMOTE_ADDR']))
   die("Fatal Error: We don't like you, so, go away!");
 // MOSTLY-WINDOWS TESTING: Having a FLATPATH that doesn't work should illicit an error:
 if ( $mSource == 'flatpath' && !file_exists($mReadIn) )
