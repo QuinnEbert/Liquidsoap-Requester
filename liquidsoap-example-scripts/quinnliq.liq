@@ -13,7 +13,7 @@
 set("log.stdout", true)
 # 
 # Enable logging to File "/home/quinn/Liquidsoap/quinnliq.log"
-set("log.file.path","/home/quinn/Liquidsoap/quinnliq.log")
+set("log.file",false)
 # 
 # Allow requests from Telnet (Liquidsoap Requester)
 set("server.telnet",true)
@@ -23,19 +23,16 @@ set("server.telnet.reverse_dns",false)
 
 # 
 # Quinn's station track auto-playlist
-#+ randomized track playback from the playlist file
-#+ use M3U-type playlist from disk named "/home/quinn/Liquidsoap/quinnliq.m3u"
+#+ randomized track playback from the playlist path
+#+ use files from directory "/home/quinn/Music/"
 #+ play a new random track each time LS performs select() 
 #+ 90-second timeout on remote track preparation processes
 #+ 1.0-hour maximum file length (in case things "run away")
 #+ 0.5-hour default file length (in case things "run away")
-myplaylist = playlist(id="playlist",length=3600.0, default_duration=1800.0,timeout=90.0,mode="random",reload=300,reload_mode="seconds",mime_type="audio/x-mpegurl","/home/quinn/Liquidsoap/quinnliq.m3u")
+myplaylist = playlist(id="playlist",length=3600.0, default_duration=1800.0,timeout=90.0,mode="random",reload=300,reload_mode="seconds",mime_type="audio/x-mpegurl","/home/quinn/Music/")
 # 
 # Request Queue from Telnet (Liquidsoap Requester)
 requests = request.queue(id="requests")
-# 
-# If liquidsoap gets hopelessly confused , we'll play the file "fallback.mp3" if it's available
-security = single(id="security","/home/quinn/Liquidsoap/fallback.mp3")
 # 
 # 
 # INTERNAL PROCESSES: DO NOT EDIT
@@ -44,16 +41,17 @@ security = single(id="security","/home/quinn/Liquidsoap/fallback.mp3")
 radio = myplaylist
 # 
 # Add in our on-disk security
-radio = fallback(id="switcher",track_sensitive = true, [requests, radio, security])
+radio = fallback(id="switcher",track_sensitive = true, [requests, radio, blank(duration=5.)])
 # 
 # iTunes-style (so-called "dumb"--but good enough for me) crossfading:
 radio = crossfade(start_next=10.,fade_out=10.,fade_in=10.,radio)
 # 
 # Setup the output Streams:
-send_mp3 = output.icecast.mp3(
-  id="ToVorbis",
+output.icecast(#mp3(
   samplerate=44100,
   stereo=true,
+  bitrate=192),
+  id="ToVorbis",
   restart=true,
   restart_delay=10,
   mount="/myAuto.mp3",
@@ -65,9 +63,6 @@ send_mp3 = output.icecast.mp3(
   url="http://www.QuinnEbert.net/",
   description = "Automation Powered By Liquidsoap.  Visit www.QuinnEbert.net for contract-based Liquidsoap setup and customisation!",
   public=true,
-  bitrate=192)
-# 
-# Begin outputting the stream...
-send_mp3(radio)
+  radio)
 # 
 # END OF SCRIPT
