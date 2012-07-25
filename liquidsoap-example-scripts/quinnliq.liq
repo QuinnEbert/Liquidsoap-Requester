@@ -47,13 +47,11 @@ radio = fallback(id="switcher",track_sensitive = true, [requests, radio, blank(d
 radio = crossfade(start_next=10.,fade_out=10.,fade_in=10.,radio)
 # 
 # Setup the output Streams:
-output.icecast(#mp3(
+output.icecast(%mp3(
   samplerate=44100,
   stereo=true,
   bitrate=192),
   id="ToVorbis",
-  restart=true,
-  restart_delay=10,
   mount="/myAuto.mp3",
   name="QuinnEbert.NET Radio",
   host="127.0.0.1",
