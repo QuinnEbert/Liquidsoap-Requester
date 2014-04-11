@@ -299,7 +299,7 @@ if ( $microMe ) {
               $had = TRUE;
             }
             if ($had != TRUE && $gus != '' && strstr(stl($song),stl($gus)))
-              echo '<tr><td colspan="2" valign="top" align="left"><a href="'.basename(__FILE__).'?act=req&amp;que='.urlencode($dirname.$file).'">'.str_replace(' ','&nbsp;',$file).'</a><br><br>"'.$mp3_title.'"</td></tr>'."\n";
+              echo '<tr><td colspan="2" valign="top" align="left"><a href="'.basename(__FILE__).'?act=req&amp;que='.urlencode($dirname.$file).'">'.str_replace(' ','&nbsp;',$file).'</a><br><br>"'.$song.'"</td></tr>'."\n";
           }
         }
       }
@@ -321,7 +321,7 @@ if ( $microMe ) {
             $had = TRUE;
           }
           if ($had != TRUE && $gus != '' && strstr(stl($song),stl($gus)))
-            echo '<tr><td colspan="2" valign="top" align="left"><a href="'.basename(__FILE__).'?act=req&amp;que='.urlencode($file).'">'.str_replace(' ','&nbsp;',basename($file)).'</a><br><br>"'.$mp3_title.'"</td></tr>'."\n";
+            echo '<tr><td colspan="2" valign="top" align="left"><a href="'.basename(__FILE__).'?act=req&amp;que='.urlencode($file).'">'.str_replace(' ','&nbsp;',basename($file)).'</a><br><br>"'.$song.'"</td></tr>'."\n";
         }
       } else {
         echo("<strong>PROBLEM:</strong><br><br>Unable to read the playlist file at &quot;$mReadIn&quot;!");
